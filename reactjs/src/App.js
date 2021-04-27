@@ -27,11 +27,12 @@ class App extends Component {
 
   render() {
     return(
-      <>
+    <>  
       <div class="wrapper fadeInDown">
         <div id="formContent">
           <h2 class="active"> Sign In </h2>
           <h2 class="inactive underlineHover">Sign Up </h2>
+          
 
           <div class="fadeIn first">
             <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
@@ -39,7 +40,7 @@ class App extends Component {
 
           <form>
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"/>
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"/>
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter Password"/>
             <input type="submit" class="fadeIn fourth" value="Log In"/>
           </form>
 
@@ -168,7 +169,7 @@ class App extends Component {
          transform: scale(0.95);
        }
        
-       input[type=text] {
+       input[type=text], input[type=password] {
          background-color: #f6f6f6;
          border: none;
          color: #0d0d0d;
