@@ -40,10 +40,13 @@ class App extends Component {
 
           <form>
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"/>
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter Password"/>
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter Password "/>
+            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-key-fill' viewBox='0 0 16 16'>
+  <path d='M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/>
+</svg><i class="bi bi-key-fill"></i>
             <input type="submit" class="fadeIn fourth" value="Log In"/>
           </form>
-
+          
           <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
           </div>
@@ -169,7 +172,7 @@ class App extends Component {
          transform: scale(0.95);
        }
        
-       input[type=text], input[type=password] {
+       input[type=text] {
          background-color: #f6f6f6;
          border: none;
          color: #0d0d0d;
@@ -189,6 +192,27 @@ class App extends Component {
          -webkit-border-radius: 5px 5px 5px 5px;
          border-radius: 5px 5px 5px 5px;
        }
+
+       input[type=password] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 15px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
        
        input[type=text]:focus {
          background-color: #fff;
