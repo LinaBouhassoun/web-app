@@ -25,10 +25,15 @@ class App extends Component {
         .catch(console.log)
   }
   async handleSubmit(e) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email:e.target.login.value,password: e.target.password.value})
+    };
     console.log("submit")
     console.log(e.target)
     console.log(e.target.login.value+" "+e.target.password.value)
-    await fetch('http://localhost:8000/auth')
+    await fetch('http://localhost:8000/auth',requestOptions)
         .then(res => res.json())
         .then((data) => {
           this.setState({ data: data.msg })
