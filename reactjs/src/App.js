@@ -24,7 +24,18 @@ class App extends Component {
         })
         .catch(console.log)
   }
-
+  async handleSubmit(e) {
+    console.log("submit")
+    console.log(e.target)
+    console.log(e.target.login.value+" "+e.target.password.value)
+    await fetch('http://localhost:8000/auth')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ data: data.msg })
+          console.log(data)
+        })
+        .catch(console.log);
+  }
   render() {
     return(
     <>  
@@ -38,12 +49,13 @@ class App extends Component {
             <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
           </div>
 
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"/>
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter Password "/>
-            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-key-fill' viewBox='0 0 16 16'>
-  <path d='M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/>
-</svg><i class="bi bi-key-fill"></i>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email (example@example.com)" required/>
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password " required/>
+            <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-key-fill' viewBox='0 0 16 16'>
+            <path d='M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/>
+            </svg><i class="bi bi-key-fill"></i>
+            
             <input type="submit" class="fadeIn fourth" value="Log In"/>
           </form>
           
@@ -53,6 +65,8 @@ class App extends Component {
 
         </div>
       </div>
+                
+
       <style jsx>{`
        @import url('https://fonts.googleapis.com/css?family=Poppins');
 
@@ -202,7 +216,7 @@ class App extends Component {
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin-left: 15px;
+        margin-left: 17px;
         width: 85%;
         border: 2px solid #f6f6f6;
         -webkit-transition: all 0.5s ease-in-out;
