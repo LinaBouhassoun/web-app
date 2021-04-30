@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 
+const validator = require ('validator')
+const emails = ['']
+
+emails.forEach((email) => {
+  console.log(
+      '%s : %s',
+      email,
+      validator.isEmail(email) ? 'OK' : "l'adresse n'est pas valide"
+  )
+}),
+
 class App extends Component {
 
   constructor(props){
@@ -41,6 +52,7 @@ class App extends Component {
         })
         .catch(console.log);
   }
+
   render() {
     return(
     <>  
@@ -55,7 +67,8 @@ class App extends Component {
           </div>
 
           <form onSubmit={this.handleSubmit}>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email (example@example.com)" required/>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email (example@example.com)" required/>                
+
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password " required/>
             <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-key-fill' viewBox='0 0 16 16'>
             <path d='M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/>
